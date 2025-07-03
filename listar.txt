@@ -1,0 +1,23 @@
+<?php
+
+
+include("db.php");
+
+
+$sql = "SELECT * FROM usuarios";
+$resultado = mysqli_query($conn, $sql);
+
+echo "<h1> LISTA DE ALUNOS </h1>";
+
+echo "<table border='1'>    
+      <tr>  <th> nome </th> <th> email </th>  <th> matricula </th>  </tr>";
+
+while ($linha = mysqli_fetch_assoc($resultado)) {
+    echo "<tr>";
+    echo  '<td>' . $linha['nome'] . "</td>";
+    echo  '<td>' . $linha['email'] . "</td>";
+    echo  '<td>' . $linha['matricula'] . "</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
